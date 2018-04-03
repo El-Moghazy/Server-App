@@ -36,7 +36,7 @@ class Client {
         try {
         	System.out.println(str);
         	app.getTextField2().setText(str);
-            output.writeUTF(str);
+            output.writeUTF(str); 
 
         } catch (IOException e) {
             e.printStackTrace();
