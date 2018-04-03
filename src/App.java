@@ -1,37 +1,51 @@
-import javax.swing.*;
-
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 public class App extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton button1;
-	private JTextField textField1;
-	private JPanel panel;
-	private JTextField textField2;
-	private JTextField textField3;
+	private JTextArea textField1;
+	private JTextArea textField2;
+	private JTextArea textField3;
 	private String text1;
 
 	public App() {
-		
-		
 
 		this.getContentPane().setLayout(new GridLayout());
 		button1 = new JButton("Path");
-		textField1 = new JTextField();
-		panel = new JPanel();
-		textField2 = new JTextField("Request");
+		button1.setBackground(new Color(255, 0, 0));
+		button1.setFocusPainted(false);
+		button1.setBorderPainted(false);
+		textField1 = new JTextArea();
+		textField1.setFocusable(true);
+		textField2 = new JTextArea("Request");
+		textField2.setFocusable(false);
+		textField2.setFont(new Font("TimesRoman", Font.BOLD, 20));
 		JScrollPane scroll1 = new JScrollPane(textField2);
-		textField3 = new JTextField("Response");
+		scroll1.setFocusable(false);
+		scroll1.setBorder(null);
+		textField3 = new JTextArea("Response");
+		textField3.setFont(new Font("TimesRoman", Font.BOLD, 20));
 		JScrollPane scroll2 = new JScrollPane(textField3);
+		scroll2.setFocusable(false);
+
 		text1 = "";
 		add(button1);
 		add(textField1);
 		add(scroll1);
 		add(scroll2);
-
 
 		button1.addActionListener(new ActionListener() {
 			@Override
@@ -42,11 +56,11 @@ public class App extends JFrame {
 			}
 		});
 	}
-	
-	public void start () {
+
+	public void start() {
 		JFrame frame = this;
-		frame.setSize(new Dimension(400,400));
-		frame.setPreferredSize(new Dimension(400,400));
+		frame.setSize(new Dimension(400, 400));
+		frame.setPreferredSize(new Dimension(400, 400));
 
 		// Display the window.
 		frame.pack();
@@ -62,27 +76,27 @@ public class App extends JFrame {
 		this.button1 = button1;
 	}
 
-	public JTextField getTextField1() {
+	public JTextArea getTextField1() {
 		return textField1;
 	}
 
-	public void setTextField1(JTextField textField1) {
+	public void setTextField1(JTextArea textField1) {
 		this.textField1 = textField1;
 	}
 
-	public JTextField getTextField2() {
+	public JTextArea getTextField2() {
 		return textField2;
 	}
 
-	public void setTextField2(JTextField textField2) {
+	public void setTextField2(JTextArea textField2) {
 		this.textField2 = textField2;
 	}
 
-	public JTextField getTextField3() {
+	public JTextArea getTextField3() {
 		return textField3;
 	}
 
-	public void setTextField3(JTextField textField3) {
+	public void setTextField3(JTextArea textField3) {
 		this.textField3 = textField3;
 	}
 
@@ -95,8 +109,6 @@ public class App extends JFrame {
 	}
 
 	public static void main(String[] args) {
-
-
 
 	}
 }
