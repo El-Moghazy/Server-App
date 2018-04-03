@@ -20,15 +20,17 @@ public class App extends JFrame {
 
 		this.getContentPane().setLayout(new GridLayout());
 		button1 = new JButton("Path");
-		textField1 = new JTextField("Item");
+		textField1 = new JTextField();
 		panel = new JPanel();
 		textField2 = new JTextField("Request");
+		JScrollPane scroll1 = new JScrollPane(textField2);
 		textField3 = new JTextField("Response");
+		JScrollPane scroll2 = new JScrollPane(textField3);
 		text1 = "";
 		add(button1);
 		add(textField1);
-		add(textField2);
-		add(textField3);
+		add(scroll1);
+		add(scroll2);
 
 
 		button1.addActionListener(new ActionListener() {
@@ -42,7 +44,7 @@ public class App extends JFrame {
 	}
 	
 	public void start () {
-		JFrame frame = new App();
+		JFrame frame = this;
 		frame.setSize(new Dimension(400,400));
 		frame.setPreferredSize(new Dimension(400,400));
 

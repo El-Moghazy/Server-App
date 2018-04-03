@@ -18,13 +18,16 @@ class Client {
 
         do {
             input = app.getText1();
+            System.out.print(input);
             System.out.print("");
         } while (input == null);
 
-//        Scanner scanner = new Scanner(input);
+        Scanner scanner = new Scanner(input);
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
         String msg = "";
-//        msg = scanner.nextLine();
+        if (scanner.hasNextLine()){
+        msg = scanner.nextLine();
+        }
 
 
         String str = "GET / HTTP/1.1\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)\r\n" +
@@ -32,6 +35,7 @@ class Client {
 
         try {
         	System.out.println(str);
+        	app.getTextField2().setText(str);
             output.writeUTF(str);
 
         } catch (IOException e) {
